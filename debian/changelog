@@ -1,3 +1,9 @@
+defusedxml (0.6.0-2pexip3) pexip; urgency=medium
+
+  * Rebuild for source upload to main.
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Tue, 27 Jul 2021 15:42:31 +0100
+
 defusedxml (0.6.0-2pexip2) pexip; urgency=medium
 
   * Rebuild for upload to main.
