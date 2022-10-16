@@ -1,6 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: defusedxml
-Source: https://pypi.python.org/pypi/defusedxml
+Source: https://github.com/tiran/defusedxml
+Upstream-Contact: Christian Heimes <christian@python.org>
 
 Files: *
 Copyright: 2013-2019 Christian Heimes <christian@python.org>

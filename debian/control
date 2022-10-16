@@ -1,17 +1,18 @@
 Source: defusedxml
-Maintainer: Debian Python Modules Packaging Team <python-modules-team@lists.alioth.debian.org>
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
 Uploaders: Luke Faraone <lfaraone@debian.org>, Jelmer Vernooĳ <jelmer@debian.org>
 Section: python
 Priority: optional
 Build-Depends: dh-python,
                python3-all,
-               debhelper-compat (= 12),
+               debhelper-compat (= 13),
                python3-setuptools
-Standards-Version: 4.4.1
-Homepage: https://pypi.python.org/pypi/defusedxml
+Standards-Version: 4.6.1
+Homepage: https://github.com/tiran/defusedxml
 Testsuite: autopkgtest-pkg-python
-Vcs-Git: https://salsa.debian.org/python-team/modules/defusedxml.git
-Vcs-Browser: https://salsa.debian.org/python-team/modules/defusedxml
+Vcs-Git: https://salsa.debian.org/python-team/packages/defusedxml.git
+Vcs-Browser: https://salsa.debian.org/python-team/packages/defusedxml
+Rules-Requires-Root: no
 
 Package: python3-defusedxml
 Architecture: all

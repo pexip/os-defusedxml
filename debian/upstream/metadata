@@ -1,3 +1,5 @@
+Bug-Submit: https://github.com/tiran/defusedxml/issues/new
 Repository: https://github.com/tiran/defusedxml.git
 Repository-Browse: https://github.com/tiran/defusedxml
 Bug-Database: https://github.com/tiran/defusedxml/issues
+Security-Contact: https://github.com/tiran/defusedxml/tree/HEAD/SECURITY.md
