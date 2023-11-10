@@ -6,11 +6,12 @@ import sys
 import unittest
 import warnings
 
+from xml.etree import ElementTree as orig_elementtree
 from xml.sax.saxutils import XMLGenerator
 from xml.sax import SAXParseException
 from pyexpat import ExpatError
 
-from defusedxml import cElementTree, ElementTree, minidom, pulldom, sax, xmlrpc, expatreader
+from defusedxml import ElementTree, minidom, pulldom, sax, xmlrpc, expatreader
 from defusedxml import defuse_stdlib
 from defusedxml import (
     DTDForbidden,
@@ -21,14 +22,18 @@ from defusedxml import (
 from defusedxml.common import PY3
 
 
+if sys.version_info < (3, 7):
+    warnings.filterwarnings("once", category=DeprecationWarning)
+
+
+with warnings.catch_warnings(record=True) as cetree_warnings:
+    from defusedxml import cElementTree
+
+
 try:
     import gzip
 except ImportError:
     gzip = None
-
-
-if sys.version_info < (3, 7):
-    warnings.filterwarnings("once", category=DeprecationWarning)
 
 
 try:
@@ -204,9 +209,28 @@ class TestDefusedElementTree(BaseTests):
         assert self.module.XMLParser is parser
         assert self.module.XMLParse is parser
 
+    def test_import_order(self):
+        from xml.etree import ElementTree as second_elementtree
+
+        self.assertIs(orig_elementtree, second_elementtree)
+
+    def test_orig_parseerror(self):
+        # https://github.com/tiran/defusedxml/issues/63
+        self.assertIs(self.module.ParseError, orig_elementtree.ParseError)
+        try:
+            self.parseString("invalid")
+        except Exception as e:
+            self.assertIsInstance(e, orig_elementtree.ParseError)
+            self.assertIsInstance(e, self.module.ParseError)
+
 
 class TestDefusedcElementTree(TestDefusedElementTree):
     module = cElementTree
+
+    def test_celementtree_warnings(self):
+        self.assertTrue(cetree_warnings)
+        self.assertEqual(cetree_warnings[0].category, DeprecationWarning)
+        self.assertIn("tests.py", cetree_warnings[0].filename)
 
 
 class TestDefusedMinidom(BaseTests):
