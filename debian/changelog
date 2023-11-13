@@ -1,3 +1,44 @@
+defusedxml (0.7.1-2) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Contact, Security-Contact.
+  * Update standards version to 4.6.1, no changes needed.
+  * Set field Upstream-Contact in debian/copyright.
+  * Remove obsolete field Contact from debian/upstream/metadata (already present
+    in machine-readable debian/copyright).
+
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Sun, 16 Oct 2022 23:26:00 +0100
+
+defusedxml (0.7.1-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Ondřej Nový ]
+  * d/control: Update Maintainer field with new Debian Python Team
+    contact address.
+  * d/control: Update Vcs-* fields with new Debian Python Team Salsa
+    layout.
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Submit.
+  * Update standards version to 4.5.0, no changes needed.
+  * Bump debhelper from old 12 to 13.
+    + Drop check for DEB_BUILD_OPTIONS containing "nocheck", since debhelper now
+      does this.
+  * Update standards version to 4.5.1, no changes needed.
+
+  [ Gordon Ball ]
+  * d/watch: use github as upstream, drop expired signing key
+  * New upstream version 0.7.1
+  * Rebase patches, drop all
+  * Update homepage to github.com/tiran/defusedxml
+  * Rules-requires-root: no
+  * docs: drop (generated) README.html
+  * Standards-Version: 4.6.0
+  * Add autopkgtest
+
+ -- Gordon Ball <gordon@chronitis.net>  Tue, 12 Oct 2021 17:52:18 +0000
+
 defusedxml (0.6.0-2pexip6) pexip-bullseye; urgency=medium
 
   * Bullseye rebuild for ARM64 inclusion
